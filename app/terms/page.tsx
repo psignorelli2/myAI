@@ -19,15 +19,15 @@ export default function Terms() {
         <ol className="list-decimal list-inside space-y-4">
           <li className="text-gray-700">
             <span className="font-semibold">Acceptance of Terms:</span> By
-            accessing and using the AI chatbot ("Chatbot") provided by Ramsy
-            ("Provider"), you acknowledge that you have read, understood, and
+            accessing and using the AI chatbot NCAA AI provided by 
+            Paul Signorelli, you acknowledge that you have read, understood, and
             agreed to be bound by these Terms of Use. If you do not agree with
             these terms, do not use the Chatbot.
           </li>
           <li className="text-gray-700">
             <span className="font-semibold">No Warranties:</span> The Chatbot is
             provided "as is" and "as available" without any warranties, express
-            or implied. Ramsy makes no representations or warranties regarding
+            or implied. NCAA AI makes no representations or warranties regarding
             the accuracy, reliability, completeness, or suitability of the
             Chatbot for any purpose. To the fullest extent permitted by law, all
             warranties, including but not limited to implied warranties of
@@ -38,14 +38,14 @@ export default function Terms() {
             <span className="font-semibold">
               No Guarantees on Availability or Support:
             </span>{" "}
-            Ramsy does not guarantee that the Chatbot will be available at all
+            NCAA AI does not guarantee that the Chatbot will be available at all
             times, be uninterrupted, secure, or error-free. No technical
             support, maintenance, or updates are guaranteed or required to be
             provided.
           </li>
           <li className="text-gray-700">
             <span className="font-semibold">Limitation of Liability:</span> To
-            the fullest extent permitted by applicable law, Ramsy shall not be
+            the fullest extent permitted by applicable law, NCAA AI shall not be
             liable for any direct, indirect, incidental, consequential, special,
             exemplary, or punitive damages arising from or related to your use
             of or inability to use the Chatbot. This includes but is not limited
@@ -59,7 +59,8 @@ export default function Terms() {
             The Chatbot is intended for informational and general purposes only.
             It does not constitute legal, financial, medical, or professional
             advice. Any reliance on the information provided by the Chatbot is
-            at your own risk.
+            at your own risk. This chatbot is also not affiliated with the NCAA and any of its
+            partners. This is created as a project to demonstrate the usefulness of AI in college athletics.
           </li>
           <li className="text-gray-700">
             <span className="font-semibold">User Responsibility:</span> You are
@@ -73,7 +74,7 @@ export default function Terms() {
             is not secured and may be processed by third parties. Do not upload,
             share, or transmit any sensitive, confidential, or personal
             information. All conversations conducted through the Chatbot are
-            considered equivalent to public postings, and Ramsy does not
+            considered equivalent to public postings, and NCAA AI does not
             guarantee the confidentiality or security of any data shared.
           </li>
           <li className="text-gray-700">
@@ -84,7 +85,7 @@ export default function Terms() {
             these Terms of Use.
           </li>
           <li className="text-gray-700">
-            <span className="font-semibold">Modifications to Terms:</span> Ramsy
+            <span className="font-semibold">Modifications to Terms:</span> NCAA AI
             reserves the right to modify these Terms of Use at any time without
             prior notice. Continued use of the Chatbot constitutes acceptance of
             the modified terms.
@@ -98,7 +99,7 @@ export default function Terms() {
           <li className="text-gray-700">
             <span className="font-semibold">Contact Information:</span> If you
             have any questions or concerns regarding these Terms of Use, please
-            contact Ramsy at [insert contact information].
+            contact us at paulsignorelli3@gmail.com
           </li>
         </ol>
       </div>
