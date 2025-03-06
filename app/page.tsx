@@ -18,10 +18,10 @@ export default function Chat() {
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      {/* Pass only clearMessages to ChatHeader */}
-      <ChatHeader clearMessages={clearMessages} />  
+      <ChatHeader clearMessages={clearMessages} />
       <div className="flex-1 flex justify-center items-center">
         <div className="flex flex-col max-w-screen-lg w-full h-full p-5">
+          <ChatMessages messages={messages} indicatorState={indicatorState} />
         </div>
       </div>
       <ChatInput
