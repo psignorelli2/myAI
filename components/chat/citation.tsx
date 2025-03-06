@@ -36,13 +36,13 @@ export function CitationCircle({
       trigger="mouseenter click"
       interactive={true}
       html={
-        <div className="bg-white p-2 rounded-md shadow-sm flex flex-col justify-center border-[1px] border-gray-200">
-          <p>
+        <div className="bg-[#2A2A2A] p-2 rounded-md shadow-sm flex flex-col justify-center border-[1px] border-[#3A3A3A]">
+          <p className="text-[#E4E4E4]">
             {hasSourceUrl && (
               <Link
                 href={citation.source_url}
                 target="_blank"
-                className="text-blue-500 hover:underline text-sm"
+                className="text-blue-400 hover:underline text-sm"
               >
                 {citation.source_description}
               </Link>
