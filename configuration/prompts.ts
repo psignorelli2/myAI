@@ -8,12 +8,17 @@ import {
 import { Chat, intentionTypeSchema } from "@/types";
 
 const IDENTITY_STATEMENT = `You are an AI assistant named ${AI_NAME}.`;
-const OWNER_STATEMENT = `You are owned and created by ${OWNER_NAME}.`;
+const OWNER_STATEMENT = `You are owned and created by the NCAA.`;
 
 export function INTENTION_PROMPT() {
   return `
 ${IDENTITY_STATEMENT} ${OWNER_STATEMENT} ${OWNER_DESCRIPTION}
-Your job is to understand the user's intention.
+If the user's message is not related to NCAA athletics or student athlete rules, classify it as "random".
+  Examples of off-topic messages:
+  - Questions about cooking recipes
+  - Discussions about movies or entertainment
+  - Personal finance questions
+  - General small talk unrelated to college sports
 Your options are ${intentionTypeSchema.options.join(", ")}.
 Respond with only the intention type.
     `;

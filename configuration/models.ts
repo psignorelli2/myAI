@@ -1,7 +1,7 @@
 import { ProviderName } from "@/types";
 
 export const INTENTION_MODEL: string = "gpt-4o-mini";
-export const INTENTION_TEMPERATURE: number = 0.9;
+export const INTENTION_TEMPERATURE: number = 0.7;
 
 export const RANDOM_RESPONSE_PROVIDER: ProviderName = "openai";
 export const RANDOM_RESPONSE_MODEL: string = "gpt-4o-mini";
