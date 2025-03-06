@@ -17,9 +17,9 @@ export default function Chat() {
   } = useApp();
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen bg-background">
       <ChatHeader clearMessages={clearMessages} />
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex-1 flex justify-center items-center">
         <div className="flex flex-col max-w-screen-lg w-full h-full p-5">
           <ChatMessages messages={messages} indicatorState={indicatorState} />
         </div>
@@ -30,6 +30,6 @@ export default function Chat() {
         input={input}
         isLoading={isLoading}
       />
-    </>
+    </div>
   );
 }
