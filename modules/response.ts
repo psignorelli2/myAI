@@ -49,25 +49,50 @@ import {
  * ResponseModule is responsible for collecting data and building a response
  */
 export class ResponseModule {
-  static async respondToRandomMessage(chat: Chat, providers: AIProviders) {
-    const randomResponses = [
-      "I'm focused on NCAA athletics and student athlete rules. Could we get back to that topic?",
-      "That seems unrelated to college sports. Is there something specific about NCAA regulations you'd like to discuss?",
-      "I'm specialized in NCAA athletics and student athlete matters. Let's focus on those topics.",
-      "I don't have information on that subject. I'm designed to help with questions about NCAA athletics and student athlete rules.",
-      "Let's get back to discussing NCAA sports and regulations, which is what I'm best equipped to help with."
-    ];
-    
-    // Option 1: Simple random response selection
-    const randomIndex = Math.floor(Math.random() * randomResponses.length);
-    const response = randomResponses[randomIndex];
-    return new Response(
-      JSON.stringify({
-        role: "assistant",
-        content: response,
-      }),
-      { status: 200 }
-    );
+  static async respondToRandomMessage(
+    chat: Chat,
+    providers: AIProviders
+  ): Promise<Response> {
+    /**
+     * Respond to the user when they send a RANDOM message
+     */
+    const PROVIDER_NAME: ProviderName = RANDOM_RESPONSE_PROVIDER;
+    const MODEL_NAME: string = RANDOM_RESPONSE_MODEL;
+
+    const stream = new ReadableStream({
+      async start(controller) {
+        queueIndicator({
+          controller,
+          status: "Coming up with an answer",
+          icon: "thinking",
+        });
+        const systemPrompt = RESPOND_TO_RANDOM_MESSAGE_SYSTEM_PROMPT();
+        const mostRecentMessages: CoreMessage[] = await convertToCoreMessages(
+          stripMessagesOfCitations(chat.messages.slice(-HISTORY_CONTEXT_LENGTH))
+        );
+
+        const citations: Citation[] = [];
+        queueAssistantResponse({
+          controller,
+          providers,
+          providerName: PROVIDER_NAME,
+          messages: mostRecentMessages,
+          model_name: MODEL_NAME,
+          systemPrompt,
+          citations,
+          error_message: DEFAULT_RESPONSE_MESSAGE,
+          temperature: RANDOM_RESPONSE_TEMPERATURE,
+        });
+      },
+    });
+
+    return new Response(stream, {
+      headers: {
+        "Content-Type": "text/event-stream",
+        "Cache-Control": "no-cache",
+        Connection: "keep-alive",
+      },
+    });
   }
 
 
