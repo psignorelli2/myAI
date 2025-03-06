@@ -1,4 +1,5 @@
 // theme.ts - Create this file in your project
+import React from "react";
 import { createContext, useContext, useEffect, useState } from "react";
 
 // Define theme colors
@@ -70,10 +71,10 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }, [isDarkMode]);
 
-  return (
-    <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
+  return React.createElement(
+    ThemeContext.Provider,
+    { value: { isDarkMode, toggleTheme } },
+    children
   );
 };
 
