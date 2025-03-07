@@ -20,7 +20,7 @@ export default function ChatHeader({
   const { isDarkMode, toggleTheme } = useTheme();
 
   return (
-    <div className="z-10 flex justify-center items-center fixed top-0 w-full p-5 bg-background shadow-[0_10px_15px_-3px_rgba(30,30,30,1)] dark:shadow-[0_10px_15px_-3px_rgba(30,30,30,1)]">
+    <div className="z-10 flex justify-center items-center fixed top-0 w-full p-5 bg-gray-900 shadow-[0_10px_15px_-3px_rgba(30,30,30,1)] dark:shadow-[0_10px_15px_-3px_rgba(30,30,30,1)]">
       <div className="flex w-full">
         <div className="flex-0 w-[100px]">
           <Button
