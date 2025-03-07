@@ -4,7 +4,6 @@ import { PAGE_TITLE, PAGE_DESCRIPTION } from "@/configuration/ui";
 import "./globals.css";
 import { ErrorWrapper } from "./parts/error/error-wrapper";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { ThemeProvider } from "@/theme";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
