@@ -6,6 +6,8 @@ import { Tooltip } from "react-tippy";
 import Link from "next/link";
 import { EMPTY_CITATION_MESSAGE } from "@/configuration/ui";
 
+const NCAA_URL = "https://www.ncaa.com"; // Always redirect to NCAA website
+
 export function CitationCircle({
   number,
   citation,
@@ -15,25 +17,6 @@ export function CitationCircle({
 }) {
   const [open, setOpen] = useState(false);
 
-  const isValidUrl = (url: string) => {
-    try {
-      new URL(url);
-      return true;
-    } catch {
-      return false;
-    }
-  };
-
-  const isNCAADomain = (url: string) => {
-    try {
-      const parsedUrl = new URL(url);
-      return parsedUrl.hostname.endsWith("ncaa.com"); // Ensures subdomains also work
-    } catch {
-      return false;
-    }
-  };
-
-  const hasValidNCAAUrl = isValidUrl(citation.source_url) && isNCAADomain(citation.source_url);
   const hasSourceDescription = citation.source_description.trim() !== "";
 
   return (
@@ -48,17 +31,14 @@ export function CitationCircle({
       html={
         <div className="bg-[#2A2A2A] p-2 rounded-md shadow-sm flex flex-col justify-center border-[1px] border-[#3A3A3A]">
           <p className="text-[#E4E4E4]">
-            {hasValidNCAAUrl ? (
-              <Link
-                href={citation.source_url}
-                target="_blank"
-                className="text-blue-400 hover:underline text-sm"
-              >
-                {citation.source_description}
-              </Link>
-            ) : (
-              citation.source_description || EMPTY_CITATION_MESSAGE
-            )}
+            <Link
+              href={NCAA_URL}
+              target="_blank"
+              className="text-blue-400 hover:underline text-sm"
+            >
+              {citation.source_description || "NCAA Website"}
+            </Link>
+            {!hasSourceDescription && EMPTY_CITATION_MESSAGE}
           </p>
         </div>
       }
