@@ -12,6 +12,16 @@ body {
   }
 }
 
+ol {
+  list-style-type: decimal;
+  padding-left: 1rem;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 1rem;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -40,9 +50,10 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
-  
+
   .dark {
-    --background: 0 0% 12%; /* Matte dark grey background */
+    --background: 0 0% 12%;
+    /* Matte dark grey background */
     --foreground: 0 0% 98%;
     --card: 0 0% 15%;
     --card-foreground: 0 0% 98%;
@@ -73,6 +84,7 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
