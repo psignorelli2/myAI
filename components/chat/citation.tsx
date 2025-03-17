@@ -23,7 +23,17 @@ export function CitationCircle({
       return false;
     }
   };
-  const hasSourceUrl = isValidUrl(citation.source_url);
+
+  const isNCAADomain = (url: string) => {
+    try {
+      const parsedUrl = new URL(url);
+      return parsedUrl.hostname.endsWith("ncaa.com"); // Ensures subdomains also work
+    } catch {
+      return false;
+    }
+  };
+
+  const hasValidNCAAUrl = isValidUrl(citation.source_url) && isNCAADomain(citation.source_url);
   const hasSourceDescription = citation.source_description.trim() !== "";
 
   return (
@@ -38,7 +48,7 @@ export function CitationCircle({
       html={
         <div className="bg-[#2A2A2A] p-2 rounded-md shadow-sm flex flex-col justify-center border-[1px] border-[#3A3A3A]">
           <p className="text-[#E4E4E4]">
-            {hasSourceUrl && (
+            {hasValidNCAAUrl ? (
               <Link
                 href={citation.source_url}
                 target="_blank"
@@ -46,15 +56,15 @@ export function CitationCircle({
               >
                 {citation.source_description}
               </Link>
+            ) : (
+              citation.source_description || EMPTY_CITATION_MESSAGE
             )}
-            {!hasSourceUrl && citation.source_description}
-            {!hasSourceUrl && !hasSourceDescription && EMPTY_CITATION_MESSAGE}
           </p>
         </div>
       }
     >
       <div
-        className="bg-gray-50 rounded-full px-2 py-0.5 hover:cursor-pointer hover:scale-105 inline-block"
+        className="bg-gray-500 rounded-full px-2 py-0.5 hover:cursor-pointer hover:scale-105 inline-block"
         onClick={() => setOpen(true)}
       >
         <span>{number}</span>
